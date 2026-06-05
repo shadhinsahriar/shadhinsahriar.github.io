@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Theme Toggle ---
     const themeToggle = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
     htmlElement.setAttribute('data-theme', savedTheme);
 
     themeToggle.addEventListener('click', () => {
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // trigger on load
+    revealOnScroll();
 
     // --- Navbar Shadow on Scroll ---
     const nav = document.querySelector('.navbar');
