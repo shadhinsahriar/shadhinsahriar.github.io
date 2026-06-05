@@ -42,7 +42,7 @@ body {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
 }
 
 /* --- Layout Utils --- */
@@ -52,6 +52,7 @@ body {
     background: linear-gradient(135deg, var(--accent-color), #a855f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* --- Glow Background --- */
@@ -139,7 +140,44 @@ body {
 [data-theme="light"] .theme-icon-dark { display: none; }
 [data-theme="light"] .theme-icon-light { display: block; }
 
-.mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 4px;
+}
+
+/* --- Mobile Nav Menu --- */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--nav-blur);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 999;
+    padding: 1rem 0;
+    flex-direction: column;
+}
+
+.mobile-nav.open { display: flex; }
+
+.mobile-nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: var(--transition);
+}
+
+.mobile-nav a:hover {
+    color: var(--text-primary);
+    background: var(--surface-color);
+}
 
 /* --- Hero Section --- */
 .hero-grid {
@@ -148,6 +186,7 @@ body {
     gap: 4rem;
     align-items: center;
     min-height: 85vh;
+    padding-top: 70px;
 }
 
 .badge {
@@ -185,6 +224,7 @@ body {
 .hero-btns {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -197,6 +237,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    white-space: nowrap;
 }
 
 .btn-primary { background: var(--text-primary); color: var(--bg-color); }
@@ -243,8 +284,8 @@ body {
     margin-top: 3rem;
 }
 
-.info-item { display: flex; gap: 1rem; }
-.info-item i { font-size: 1.5rem; color: var(--accent-color); }
+.info-item { display: flex; gap: 1rem; align-items: flex-start; }
+.info-item i { font-size: 1.5rem; color: var(--accent-color); flex-shrink: 0; margin-top: 2px; }
 .info-item span { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; }
 
 /* --- Skills --- */
@@ -312,13 +353,14 @@ body {
 
 .project-content h3 { font-size: 2rem; margin-bottom: 1.5rem; }
 
-.tech-stack { display: flex; gap: 10px; margin: 2rem 0; }
+.tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin: 2rem 0; }
 .tech-stack span {
     color: var(--text-secondary);
     font-size: 0.9rem;
     border-right: 1px solid var(--border-color);
     padding-right: 10px;
 }
+.tech-stack span:last-child { border-right: none; }
 
 .project-link {
     text-decoration: none;
@@ -358,6 +400,8 @@ body {
     padding: 2rem;
     font-family: 'Courier New', Courier, monospace;
     color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.8;
 }
 
 /* --- Profiles --- */
@@ -378,41 +422,92 @@ body {
     transition: var(--transition);
 }
 
-.profile-card i { font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent-color); }
+.profile-card i { font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent-color); display: block; }
+.profile-card h3 { margin-bottom: 0.5rem; }
+.profile-card p { font-size: 0.85rem; color: var(--text-secondary); }
 .profile-card:hover { background: var(--bg-color); border-color: var(--accent-color); }
+
+/* --- CV Section --- */
+.cv-card {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.cv-info { display: flex; align-items: center; gap: 1.5rem; flex: 1; min-width: 200px; }
+.cv-icon {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, var(--accent-color), #6366f1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.cv-icon i { font-size: 1.6rem; color: white; }
+.cv-info h3 { font-size: 1.3rem; margin-bottom: 0.3rem; }
+.cv-info p { color: var(--text-secondary); font-size: 0.9rem; }
+
+.btn-cv {
+    background: linear-gradient(135deg, var(--accent-color), #6366f1);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+.btn-cv:hover { transform: translateY(-2px); opacity: 0.9; }
 
 /* --- Contact --- */
 .contact-card {
     background: linear-gradient(135deg, var(--accent-color), #6366f1);
-    padding: 5rem;
+    padding: 5rem 3rem;
     border-radius: 32px;
     text-align: center;
     color: white;
 }
 
 .contact-card h2 { font-size: 3rem; margin-bottom: 1rem; }
+.contact-card > p { opacity: 0.9; font-size: 1rem; }
 
 .contact-methods {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
     margin-top: 3rem;
 }
 
 .contact-item {
-    background: rgba(255,255,255,0.1);
-    padding: 15px 30px;
+    background: rgba(255,255,255,0.15);
+    padding: 12px 22px;
     border-radius: 12px;
     color: white;
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     backdrop-filter: blur(10px);
     transition: var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
-.contact-item:hover { background: rgba(255,255,255,0.2); }
+.contact-item:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
 
 /* --- Footer --- */
 .footer {
@@ -423,12 +518,16 @@ body {
 .footer-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: var(--text-secondary);
     font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.footer-links { display: flex; gap: 2rem; }
-.footer-links a { color: var(--text-secondary); text-decoration: none; }
+.footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+.footer-links a { color: var(--text-secondary); text-decoration: none; transition: var(--transition); }
+.footer-links a:hover { color: var(--text-primary); }
 
 /* --- Reveal Animation --- */
 .reveal {
@@ -442,13 +541,111 @@ body {
     transform: translateY(0);
 }
 
-/* --- Responsive --- */
+/* =============================================
+   RESPONSIVE — Tablet (max 968px)
+   ============================================= */
 @media (max-width: 968px) {
-    .hero-grid { grid-template-columns: 1fr; text-align: center; }
-    .hero-text h1 { font-size: 3rem; }
-    .hero-btns { justify-content: center; }
-    .hero-image-wrapper { order: -1; max-width: 400px; margin: 0 auto; }
-    .project-featured { grid-template-columns: 1fr; }
+    .section { padding: 80px 0; }
+
+    /* Navbar */
     .nav-links { display: none; }
     .mobile-menu-btn { display: block; }
+
+    /* Hero */
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+        min-height: auto;
+        padding-top: 70px;
+        padding-bottom: 2rem;
+    }
+    .hero-text h1 { font-size: 3rem; letter-spacing: -1.5px; }
+    .subtitle { font-size: 1.2rem; }
+    .hero-description { margin: 0 auto 2.5rem; }
+    .hero-btns { justify-content: center; }
+    .hero-image-wrapper {
+        order: -1;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* About */
+    .about-card { padding: 2rem; }
+    .info-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+    /* Project */
+    .project-featured { grid-template-columns: 1fr; }
+    .project-content { padding: 2.5rem; }
+    .project-content h3 { font-size: 1.5rem; }
+    .project-visual { min-height: 200px; }
+
+    /* Contact */
+    .contact-card { padding: 3rem 2rem; }
+    .contact-card h2 { font-size: 2rem; }
+
+    /* CV */
+    .cv-card { flex-direction: column; align-items: flex-start; }
+}
+
+/* =============================================
+   RESPONSIVE — Mobile (max 600px)
+   ============================================= */
+@media (max-width: 600px) {
+    .container { padding: 0 1rem; }
+    .section { padding: 60px 0; }
+
+    /* Hero */
+    .hero-text h1 { font-size: 2.4rem; letter-spacing: -1px; }
+    .subtitle { font-size: 1.1rem; }
+    .hero-image-wrapper { max-width: 240px; }
+    .badge { font-size: 0.7rem; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .btn { width: 100%; justify-content: center; }
+
+    /* About */
+    .about-card { padding: 1.5rem; border-radius: 16px; }
+    .info-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+
+    /* Section titles */
+    .section-title { font-size: 1.6rem; }
+
+    /* Skills */
+    .skills-grid { grid-template-columns: 1fr; }
+
+    /* Project */
+    .project-content { padding: 1.5rem; }
+    .project-content h3 { font-size: 1.3rem; }
+    .project-featured { border-radius: 16px; }
+
+    /* Profiles */
+    .profiles-grid { grid-template-columns: 1fr 1fr; }
+    .profile-card { padding: 1.5rem 1rem; }
+    .profile-card i { font-size: 2rem; }
+
+    /* Contact */
+    .contact-card { padding: 2rem 1.25rem; border-radius: 20px; }
+    .contact-card h2 { font-size: 1.7rem; }
+    .contact-methods { gap: 0.75rem; }
+    .contact-item { padding: 10px 16px; font-size: 0.85rem; }
+
+    /* CV */
+    .cv-card { padding: 1.5rem; border-radius: 16px; }
+    .cv-info { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .btn-cv { width: 100%; justify-content: center; }
+
+    /* Footer */
+    .footer-content { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; gap: 1.5rem; }
+
+    /* Navbar logo */
+    .logo { font-size: 1.2rem; }
+}
+
+/*  RESPONSIVE — Small Mobile (max 380px)  */
+@media (max-width: 380px) {
+    .hero-text h1 { font-size: 2rem; }
+    .profiles-grid { grid-template-columns: 1fr; }
+    .contact-methods { flex-direction: column; align-items: stretch; }
+    .contact-item { justify-content: center; }
 }
