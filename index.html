@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Sahriar Ekhlas | Portfolio</title>
     <meta name="description" content="Personal portfolio of Sahriar Ekhlas, Computer Science student at Daffodil International University.">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -22,6 +22,7 @@
             <a href="#home" class="logo">Shadhin<span>.</span></a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#project">Project</a></li>
                 <li><a href="#profiles">Profiles</a></li>
@@ -43,6 +44,7 @@
     <!-- Mobile Nav -->
     <div class="mobile-nav" id="mobile-nav">
         <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#education" class="mobile-nav-link">Education</a>
         <a href="#skills" class="mobile-nav-link">Skills</a>
         <a href="#project" class="mobile-nav-link">Project</a>
         <a href="#profiles" class="mobile-nav-link">Profiles</a>
@@ -54,7 +56,6 @@
     <section class="section" id="home">
         <div class="container">
             <div class="hero-grid">
-
                 <div class="hero-text reveal">
                     <div class="badge">Computer Science Student</div>
                     <h1>Hi, I'm <span class="gradient-text">Sahriar Ekhlas</span></h1>
@@ -74,13 +75,11 @@
                         </a>
                     </div>
                 </div>
-
                 <div class="hero-image-wrapper reveal">
                     <div class="image-border">
                         <img src="MyProfile.jpg.jpeg" alt="Sahriar Ekhlas" class="profile-img">
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -116,6 +115,106 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">My academic journey from school to university</p>
+            </div>
+
+            <div class="edu-timeline">
+
+                <!-- University -->
+                <div class="edu-card edu-card--current reveal">
+                    <div class="edu-card__badge edu-card__badge--active">Current</div>
+                    <div class="edu-card__icon">
+                        <i class="fa-solid fa-university"></i>
+                    </div>
+                    <div class="edu-card__body">
+                        <div class="edu-card__meta">
+                            <span class="edu-type">Bachelor of Science</span>
+                            <span class="edu-year">2025 – 2028</span>
+                        </div>
+                        <h3 class="edu-card__title">Daffodil International University</h3>
+                        <p class="edu-card__subject">Computer Science &amp; Engineering</p>
+                        <div class="edu-card__details">
+                            <div class="edu-detail">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <span>Level 2 · Semester 5 (Tri-semester System)</span>
+                            </div>
+                            <div class="edu-detail">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Daffodil Smart City, Savar, Dhaka</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="education.html" class="edu-card__link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- HSC -->
+                <div class="edu-card reveal">
+                    <div class="edu-card__badge">Completed</div>
+                    <div class="edu-card__icon">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <div class="edu-card__body">
+                        <div class="edu-card__meta">
+                            <span class="edu-type">Higher Secondary Certificate (HSC)</span>
+                            <span class="edu-year">Passed 2023</span>
+                        </div>
+                        <h3 class="edu-card__title">Qadirabad Cantonment Sapper College</h3>
+                        <p class="edu-card__subject">Science · Natore, Rajshahi</p>
+                        <div class="edu-card__gpa">
+                            <span class="gpa-label">GPA</span>
+                            <span class="gpa-value">5.00</span>
+                            <span class="gpa-scale">/ 5.00</span>
+                            <span class="gpa-grade">A+</span>
+                        </div>
+                    </div>
+                    <a href="education.html" class="edu-card__link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- SSC -->
+                <div class="edu-card reveal">
+                    <div class="edu-card__badge">Completed</div>
+                    <div class="edu-card__icon">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <div class="edu-card__body">
+                        <div class="edu-card__meta">
+                            <span class="edu-type">Secondary School Certificate (SSC)</span>
+                            <span class="edu-year">Passed 2021</span>
+                        </div>
+                        <h3 class="edu-card__title">Begumgonj Govt. Technical High School</h3>
+                        <p class="edu-card__subject">Science · Noakhali, Chittagong</p>
+                        <div class="edu-card__gpa">
+                            <span class="gpa-label">GPA</span>
+                            <span class="gpa-value">4.78</span>
+                            <span class="gpa-scale">/ 5.00</span>
+                            <span class="gpa-grade">A</span>
+                        </div>
+                    </div>
+                    <a href="education.html" class="edu-card__link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="edu-cta reveal">
+                <a href="education.html" class="btn btn-secondary">
+                    <i class="fa-solid fa-graduation-cap"></i> View Full Academic Profile
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -242,7 +341,6 @@
                         <p>Download my latest CV to learn more about my education, skills, and academic achievements.</p>
                     </div>
                 </div>
-                <!-- Replace href with your actual CV file path, e.g., href="cv/Sahriar_Ekhlas_CV.pdf" -->
                 <a href="Sahriar_Ekhlas_CV.pdf" download class="btn-cv">
                     <i class="fa-solid fa-download"></i> Download CV
                 </a>
@@ -294,6 +392,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
