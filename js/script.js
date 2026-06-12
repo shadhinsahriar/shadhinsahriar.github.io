@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     // --- Theme Toggle ---
     const themeToggle = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.toggle('fa-xmark');
     });
 
-    // Close mobile nav when a link is clicked
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileNav.classList.remove('open');
@@ -38,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close mobile nav on outside click
     document.addEventListener('click', (e) => {
         if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
             mobileNav.classList.remove('open');
@@ -86,12 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Hero Background Mouse Movement (desktop only) ---
     const glow = document.querySelector('.glow-sphere');
-    if (window.innerWidth > 968) {
+    if (glow && window.innerWidth > 968) {
         document.addEventListener('mousemove', (e) => {
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
             glow.style.transform = `translate(${x * 50}px, ${y * 50}px)`;
         });
     }
-
 });
